@@ -1,0 +1,66 @@
+[
+  {
+    "Name": "Samsung Galaxy A24",
+    "Description": "Samsung Galaxy A24, 128GB, 6GB RAM, Dual SIM, 4G LTE - Black Middle East Version",
+    "Price": 7600,
+    "ImgUrl": "https://btech.com/cdn-cgi/image/quality=50,format=auto/media/catalog/product/cache/22b1bed05f04d71c4a848d770186c3c4/c/e/ce19448335a1fdd7e214f2a9e961a757146789007b7e20192f04dc1ad336179e.jpeg",
+    "ProductTypeID": 1,
+    "ProductBrandID": 1
+  },
+  {
+    "Name": "Realme C53",
+    "Description": "Realme C53, 256GB, 8GB RAM, 4G LTE, Dual SIM - Champion Gold",
+    "Price": 7500,
+    "ImgUrl": "https://btech.com/cdn-cgi/image/quality=50,format=auto/media/catalog/product/cache/22b1bed05f04d71c4a848d770186c3c4/p/3/p3sxhru.jpg",
+    "ProductTypeID": 1,
+    "ProductBrandID": 11
+  },
+  {
+    "Name": "Apple iPhone 11",
+    "Description": "Apple iPhone 11, 128GB, 4G LTE - Black",
+    "Price": 27500,
+    "ImgUrl": "https://btech.com/cdn-cgi/image/quality=50,format=auto/media/catalog/product/cache/22b1bed05f04d71c4a848d770186c3c4/a/p/apple-iphone-11-black-front_1.jpg",
+    "ProductTypeID": 1,
+    "ProductBrandID": 7
+  },
+  {
+    "Name": "Canon EOS 4000D DSLR Digital Camera",
+    "Description": "Canon EOS 4000D DSLR Digital Camera with 18-55mm III Lens - Black ",
+    "Price": 11000,
+    "ImgUrl": "https://btech.com/cdn-cgi/image/quality=50,format=auto/media/catalog/product/cache/22b1bed05f04d71c4a848d770186c3c4/c/a/canon_eos_4000d_4.jpg",
+    "ProductTypeID": 8,
+    "ProductBrandID": 10
+  },
+  {
+    "Name": "Go Pro Hero 6",
+    "Description": "Go Pro Hero 6 Digital Action Camera with Attachments, 12MP, Black - CHDHX-601",
+    "Price": 13500,
+    "ImgUrl": "https://btech.com/cdn-cgi/image/quality=50,format=auto/media/catalog/product/cache/22b1bed05f04d71c4a848d770186c3c4/7/1/71an79rjk6l._ac_sl1500__1_.jpg",
+    "ProductTypeID": 8,
+    "ProductBrandID": 9
+  },
+  {
+    "Name": "Apple Watch Series 8",
+    "Description": "Apple Watch Series 8, 45mm - Silver ",
+    "Price": 20000,
+    "ImgUrl": "https://btech.com/cdn-cgi/image/quality=50,format=auto/media/catalog/product/cache/22b1bed05f04d71c4a848d770186c3c4/3/9/39120cb7f84d4660f3ce399b57406de0c77155eb3505b5a7ebf985f7e3048b0f.jpeg",
+    "ProductTypeID": 3,
+    "ProductBrandID": 7
+  },
+  {
+    "Name": "PlayStation 5",
+    "Description": "PlayStation 5 Gaming Console With Controller (CD Version) - International Version",
+    "Price": 27000,
+    "ImgUrl": "https://f.nooncdn.com/p/v1669308204/N43249109A_1.jpg?format=avif&width=240",
+    "ProductTypeID": 5,
+    "ProductBrandID": 4
+  },
+  {
+    "Name": "Xbox Series X",
+    "Description": "Xbox Series X 1TB Console (Disc Version) with Controller",
+    "Price": 25500,
+    "ImgUrl": "https://f.nooncdn.com/p/v1633343874/N40635116A_1.jpg?format=avif&width=240",
+    "ProductTypeID": 5,
+    "ProductBrandID": 3
+  }
+]
