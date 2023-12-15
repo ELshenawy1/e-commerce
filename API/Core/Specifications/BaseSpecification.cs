@@ -9,6 +9,12 @@ namespace Core.Specifications
 {
     public class BaseSpecification<T> : ISpecification<T>
     {
+        public Expression<Func<T, bool>> Criteria { get;}
+        public List<Expression<Func<T, object>>> Includes { get; } = new();
+        public Expression<Func<T, object>> OrderBy { get; private set; }
+        public Expression<Func<T, object>> OrderByDescending { get; private set; }
+
+
         public BaseSpecification()
         {
 
@@ -18,13 +24,19 @@ namespace Core.Specifications
             Criteria = criteria;
         }
 
-        public Expression<Func<T, bool>> Criteria { get;}
-        public List<Expression<Func<T, object>>> Includes { get; } = new();
 
 
         protected void AddIncludes(Expression<Func<T, object>> includeExpression)
         {
             Includes.Add(includeExpression);
+        }
+        protected void AddOrderBy(Expression<Func<T, object>> orderby)
+        {
+            OrderBy = orderby;
+        }
+        protected void AddOrderByDescending(Expression<Func<T, object>> orderbydesc)
+        {
+            OrderBy = orderbydesc;
         }
     }
 }

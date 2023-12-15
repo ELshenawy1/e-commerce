@@ -43,9 +43,9 @@ namespace API.Controllers
         }
         [HttpGet]
 
-        public ActionResult<List<ProductToReturnDTO>> GetAllProduct()
+        public ActionResult<List<ProductToReturnDTO>> GetAllProduct(string? sort, int? typeid , int? brandid)
         {
-            var spec = new ProductWithTypeAndBrandSpecification();
+            var spec = new ProductWithTypeAndBrandSpecification(sort,typeid,brandid);
             var products = productRepository.List(spec);
             return mapper.Map<List<Product>,List< ProductToReturnDTO >>(products);
         }

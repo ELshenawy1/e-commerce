@@ -1,11 +1,19 @@
 {
   "Version": 1,
-  "Hash": "bUm1vPqwZHJejLhtNIB7WgmMI8ngxypkYrDApg4MvgQ=",
+  "Hash": "EnLBRNZ1rJ0Iz+CqL7jMpbdN56kKx+zVbNEW0ozBurc=",
   "Source": "API",
   "BasePath": "_content/API",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "API\\wwwroot",
+      "Source": "API",
+      "ContentRoot": "F:\\Projects\\e-commerce\\API\\API\\wwwroot\\",
+      "BasePath": "_content/API",
+      "Pattern": "**"
+    }
+  ],
   "Assets": []
 }
