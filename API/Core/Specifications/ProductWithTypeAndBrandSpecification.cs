@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,18 +10,20 @@ namespace Core.Specifications
 {
     public class ProductWithTypeAndBrandSpecification : BaseSpecification<Product>
     {
-        public ProductWithTypeAndBrandSpecification(string sort,int? typeid , int? brandid)
+        public ProductWithTypeAndBrandSpecification(ProductSpecParams  prodcutParams)
             : base(p=> 
-            (!typeid.HasValue || p.ProductTypeID == typeid) && 
-            (!brandid.HasValue || p.ProductBrandID == brandid))
+            (string.IsNullOrEmpty(prodcutParams.Search) || p.Name.ToLower().Contains(prodcutParams.Search) )&& 
+            (!prodcutParams.TypeID.HasValue || p.ProductTypeID == prodcutParams.TypeID) && 
+            (!prodcutParams.BrandID.HasValue || p.ProductBrandID == prodcutParams.BrandID))
         {
             AddIncludes(x => x.ProductType);
             AddIncludes(x => x.ProductBrand);
             AddOrderBy(p => p.Name);
+            ApplyPaging(prodcutParams.PageSize , prodcutParams.PageSize * (prodcutParams.PageIndex - 1));
 
-            if (!string.IsNullOrEmpty(sort))
+            if (!string.IsNullOrEmpty(prodcutParams.Sort))
             {
-                switch (sort)
+                switch (prodcutParams.Sort)
                 {
                     case "PriceAsc":
                         AddOrderBy(x=> x.Price); 

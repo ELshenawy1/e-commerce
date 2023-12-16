@@ -14,5 +14,6 @@ namespace Core.Interfaces
         T GetByID(int id);
         T GetEntityWithSpecification(ISpecification<T> spec);
         List<T> List(ISpecification<T> spec);
+        int Count(ISpecification<T> spec);
     }
 }

@@ -7,6 +7,7 @@ using Core.Interfaces;
 using Core.Specifications;
 using Core.DTOs;
 using AutoMapper;
+using API.Helpers;
 
 namespace API.Controllers
 {
@@ -43,11 +44,18 @@ namespace API.Controllers
         }
         [HttpGet]
 
-        public ActionResult<List<ProductToReturnDTO>> GetAllProduct(string? sort, int? typeid , int? brandid)
+        public ActionResult<Pagination<ProductToReturnDTO>> GetAllProduct([FromQuery] ProductSpecParams productparams)
         {
-            var spec = new ProductWithTypeAndBrandSpecification(sort,typeid,brandid);
+            var spec = new ProductWithTypeAndBrandSpecification(productparams);
+
+            var countSpec = new ProductWithFiltersForCountSpecification(productparams);
+            var totalItems = productRepository.Count(countSpec);
+
             var products = productRepository.List(spec);
-            return mapper.Map<List<Product>,List< ProductToReturnDTO >>(products);
+
+            var data = mapper.Map<List<Product>, List<ProductToReturnDTO>>(products);
+            return Ok(new Pagination<ProductToReturnDTO>(pageIndex : productparams.PageIndex , pageSize : productparams.PageSize , count : totalItems , data: data));
+
         }
 
         [HttpGet("{id}")]

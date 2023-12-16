@@ -26,6 +26,10 @@ namespace Infrastructure.Data
             {
                 query = query.OrderByDescending(spec.OrderByDescending);
             }
+            if (spec.IsPagingEnabled)
+            {
+                query = query.Skip(spec.Skip).Take(spec.Take);
+            }
             query = spec.Includes.Aggregate(query, (query, inc) => query.Include(inc));
             return query;
         }

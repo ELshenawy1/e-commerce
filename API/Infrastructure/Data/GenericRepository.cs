@@ -36,10 +36,15 @@ namespace Infrastructure.Data
         {
             return ApplySpecification(spec).FirstOrDefault();
         }
+        public int Count(ISpecification<T> spec)
+        {
+            return ApplySpecification(spec).Count();
+        }
 
         private IQueryable<T> ApplySpecification(ISpecification<T> spec)
         {
             return SpecificationEvaluator<T>.GetQuery(context.Set<T>().AsQueryable(), spec);
         }
+
     }
 }
