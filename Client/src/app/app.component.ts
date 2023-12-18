@@ -1,3 +1,4 @@
+import { ShopService } from './shop/shop.service';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Pagination } from './shared/models/paging';
@@ -11,11 +12,10 @@ import { Product } from './shared/models/product';
 export class AppComponent implements OnInit{
   title = 'Store Application';
   product : any;
-  constructor(private httpClient : HttpClient){}
+  constructor(private shopService : ShopService){}
   ngOnInit(): void {
-    this.httpClient.get<Pagination<Product[]>>("https://localhost:7247/api/Product?pagesize=8").subscribe((response)=>{
-      this.product = response.data;
-      console.log(this.product)
-    })
+    // this.shopService.GetProducts().subscribe((response)=>{
+    //   this.product = response.data;
+    // });
   }
 }

@@ -46,7 +46,7 @@ namespace Core.Specifications
         }
         protected void AddOrderByDescending(Expression<Func<T, object>> orderbydesc)
         {
-            OrderBy = orderbydesc;
+            OrderByDescending = orderbydesc;
         }
         
     }

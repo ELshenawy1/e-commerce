@@ -23,12 +23,12 @@ namespace Core.Specifications
 
             if (!string.IsNullOrEmpty(prodcutParams.Sort))
             {
-                switch (prodcutParams.Sort)
+                switch (prodcutParams.Sort.ToLower())
                 {
-                    case "PriceAsc":
+                    case "priceasc":
                         AddOrderBy(x=> x.Price); 
                         break;
-                    case "PriceDesc":
+                    case "pricedesc":
                         AddOrderByDescending(x=> x.Price); 
                         break;
                     default:

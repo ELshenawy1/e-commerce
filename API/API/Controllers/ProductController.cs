@@ -50,7 +50,6 @@ namespace API.Controllers
 
             var countSpec = new ProductWithFiltersForCountSpecification(productparams);
             var totalItems = productRepository.Count(countSpec);
-
             var products = productRepository.List(spec);
 
             var data = mapper.Map<List<Product>, List<ProductToReturnDTO>>(products);
