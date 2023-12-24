@@ -5,8 +5,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http'
 import { CoreModule } from './core/core.module';
-import { ShopModule } from './shop/shop.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HomeModule } from './home/home.module';
+import { ShopModule } from './shop/shop.module';
+import { BasketModule } from './basket/basket.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +19,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     CoreModule,
     ShopModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HomeModule,
+    BasketModule
   ],
   providers: [],
   bootstrap: [AppComponent]

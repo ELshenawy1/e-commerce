@@ -1,3 +1,5 @@
+import { BasketItem } from './shared/models/basket';
+import { BasketService } from './basket/basket.service';
 import { ShopService } from './shop/shop.service';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
@@ -11,11 +13,11 @@ import { Product } from './shared/models/product';
 })
 export class AppComponent implements OnInit{
   title = 'Store Application';
-  product : any;
-  constructor(private shopService : ShopService){}
+  constructor(private basketService:BasketService){}
+
   ngOnInit(): void {
-    // this.shopService.GetProducts().subscribe((response)=>{
-    //   this.product = response.data;
-    // });
+    const basketId = localStorage.getItem("basket_id")
+    if(basketId) this.basketService.getBasket(basketId)
   }
+
 }

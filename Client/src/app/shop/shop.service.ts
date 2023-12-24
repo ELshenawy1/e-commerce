@@ -15,7 +15,11 @@ export class ShopService {
   baseUrl : string = 'https://localhost:7247/api/'
 
   GetProducts(shopParams : ShopParams){
-    return this.httpClient.get<Pagination<Product[]>>(this.baseUrl+`Product?typeid=${(shopParams.typeId>0)?shopParams.typeId:''}&brandid=${(shopParams.brandId>0)?shopParams.brandId : ''}&sort=${shopParams.sort}&pageIndex=${shopParams.pageNumber}&pageSize=${shopParams.pageSize}${(shopParams.search!==null && shopParams.search.trim()!=='')?'&search='+shopParams.search : ''}`,);
+    return this.httpClient.get<Pagination<Product[]>>(this.baseUrl+`Product?typeid=${(shopParams.typeId>0)?shopParams.typeId:''}&brandid=${(shopParams.brandId>0)?shopParams.brandId : ''}&sort=${shopParams.sort}&pageIndex=${shopParams.pageNumber}&pageSize=${shopParams.pageSize}${(shopParams.search!==null && shopParams.search.trim()!=='')?'&search='+shopParams.search : ''}`);
+  }
+
+  GetProduct(id : number){
+    return this.httpClient.get<Product>(`${this.baseUrl}product/${id}`)
   }
 
   GetTypes(){

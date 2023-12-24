@@ -1,39 +1,66 @@
 <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
-    <div class="container">
-      <a class="navbar-brand" href="#">Shop App</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-between" id="navbarColor01">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link active" href="#">Home
-              <span class="visually-hidden">(current)</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Shop</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
-          </li>
-        </ul>
-        <ul class="navbar-nav ">
-            <a class="position-relative mt-1">
-                <i class="fa fa-shopping-cart fa-2x me-5 text-dark"></i>
-                <div class="cart-no" >5</div>
-            </a>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Login</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Sign up</a>
-            </li>
-          </ul>
-  
-      </div>
+  <div class="container">
+    <a class="navbar-brand" routerLink="/">Shop App</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarColor01"
+      aria-controls="navbarColor01"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div
+      class="collapse navbar-collapse justify-content-between"
+      id="navbarColor01"
+    >
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            [routerLinkActive]="'active'"
+            [routerLinkActiveOptions]="{ exact: true }"
+            routerLink="/"
+            >Home
+            <span class="visually-hidden">(current)</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLink="/shop"
+            [routerLinkActive]="'active'"
+            [routerLinkActiveOptions]="{ exact: true }"
+            >Shop</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLink="/contact"
+            [routerLinkActive]="'active'"
+            [routerLinkActiveOptions]="{ exact: true }"
+            >Contact</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav">
+        <a class="position-relative mt-1" routerLink="/basket">
+          <i class="fa fa-shopping-cart fa-2x me-5 text-dark"></i>
+          <div class="cart-no" *ngIf="count>0">{{count}}</div>
+        </a>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Sign up</a>
+        </li>
+      </ul>
     </div>
-  </nav>
+  </div>
+</nav>

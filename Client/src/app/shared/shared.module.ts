@@ -4,22 +4,28 @@ import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { SharedRoutingModule } from './shared-routing.module';
 import { PagingHeaderComponent } from './paging-header/paging-header.component';
 import { PagerComponent } from './pager/pager.component';
+import {CarouselModule} from 'ngx-bootstrap/carousel';
+import { OrderTotalComponent } from './order-total/order-total.component'
 
 
 @NgModule({
   declarations: [
     PagingHeaderComponent,
-    PagerComponent
+    PagerComponent,
+    OrderTotalComponent
   ],
   imports: [
     CommonModule,
     SharedRoutingModule,
-    PaginationModule.forRoot()
+    PaginationModule.forRoot(),
+    CarouselModule.forRoot()
   ],
   exports:[
     PaginationModule,
     PagingHeaderComponent,
-    PagerComponent
+    PagerComponent,
+    CarouselModule,
+    OrderTotalComponent
   ]
 })
 export class SharedModule { }

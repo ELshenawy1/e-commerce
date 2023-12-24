@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "KwKV5bvbEVw0+ZiAAb6aZI/fI85kS7TSXvRioqFUJYscHsKve3GQb7vZkicfRtkM+tc8HN5lztlsbv/EN7dW6A==",
+  "dgSpecHash": "gJfBPtwEwM4Ra+ZlstZ3jN8n/LcXP22zwM+52Nz7Jupc4VapejwSeqp+AAD8PLlEeXBv+581YtmI1ytKyv78hg==",
   "success": true,
   "projectFilePath": "F:\\Projects\\e-commerce\\API\\Infrastructure\\Infrastructure.csproj",
   "expectedPackageFiles": [
@@ -41,12 +41,15 @@
     "C:\\Users\\ahmed\\.nuget\\packages\\microsoft.sqlserver.server\\1.0.0\\microsoft.sqlserver.server.1.0.0.nupkg.sha512",
     "C:\\Users\\ahmed\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
     "C:\\Users\\ahmed\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
+    "C:\\Users\\ahmed\\.nuget\\packages\\pipelines.sockets.unofficial\\2.2.8\\pipelines.sockets.unofficial.2.2.8.nupkg.sha512",
+    "C:\\Users\\ahmed\\.nuget\\packages\\stackexchange.redis\\2.7.10\\stackexchange.redis.2.7.10.nupkg.sha512",
     "C:\\Users\\ahmed\\.nuget\\packages\\system.codedom\\4.4.0\\system.codedom.4.4.0.nupkg.sha512",
     "C:\\Users\\ahmed\\.nuget\\packages\\system.configuration.configurationmanager\\6.0.1\\system.configuration.configurationmanager.6.0.1.nupkg.sha512",
     "C:\\Users\\ahmed\\.nuget\\packages\\system.diagnostics.diagnosticsource\\6.0.0\\system.diagnostics.diagnosticsource.6.0.0.nupkg.sha512",
     "C:\\Users\\ahmed\\.nuget\\packages\\system.drawing.common\\6.0.0\\system.drawing.common.6.0.0.nupkg.sha512",
     "C:\\Users\\ahmed\\.nuget\\packages\\system.formats.asn1\\5.0.0\\system.formats.asn1.5.0.0.nupkg.sha512",
     "C:\\Users\\ahmed\\.nuget\\packages\\system.identitymodel.tokens.jwt\\6.24.0\\system.identitymodel.tokens.jwt.6.24.0.nupkg.sha512",
+    "C:\\Users\\ahmed\\.nuget\\packages\\system.io.pipelines\\5.0.1\\system.io.pipelines.5.0.1.nupkg.sha512",
     "C:\\Users\\ahmed\\.nuget\\packages\\system.memory\\4.5.4\\system.memory.4.5.4.nupkg.sha512",
     "C:\\Users\\ahmed\\.nuget\\packages\\system.memory.data\\1.0.2\\system.memory.data.1.0.2.nupkg.sha512",
     "C:\\Users\\ahmed\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",

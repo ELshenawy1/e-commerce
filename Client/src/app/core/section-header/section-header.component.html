@@ -1,0 +1,16 @@
+<section class="py-5 mb-3" style="margin-top: 0px; background-color: #f5f5f5;">
+    <div class="container">
+        <div class="d-flex row align-items-center">
+            <div class="col-9">
+                <h1>Title Goas Here</h1>
+            </div>
+            <div class="col-3">
+                <xng-breadcrumb>
+                    <ng-container *ngxBreadcrumbItem="let breadcrumb" >
+                        {{breadcrumb | titlecase}}
+                    </ng-container>
+                </xng-breadcrumb>
+            </div>
+        </div>
+    </div>
+</section>
