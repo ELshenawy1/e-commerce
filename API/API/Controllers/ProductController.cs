@@ -44,7 +44,6 @@ namespace API.Controllers
             return productBrandRepository.GetAll();
         }
         [HttpGet]
-        [Authorize]
         public ActionResult<Pagination<ProductToReturnDTO>> GetAllProduct([FromQuery] ProductSpecParams productparams)
         {
             var spec = new ProductWithTypeAndBrandSpecification(productparams);

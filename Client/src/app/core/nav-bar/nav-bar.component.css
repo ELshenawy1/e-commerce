@@ -9,3 +9,6 @@
     top: -12px;
     right: 32px;
 } 
+.not-muted {
+    color: #ffffff; /* Set your desired text color */
+  }

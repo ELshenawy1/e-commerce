@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { AccountService } from 'src/app/account/account.service';
 import { BasketService } from 'src/app/basket/basket.service';
 import { BasketItem } from 'src/app/shared/models/basket';
+import { User } from 'src/app/shared/models/user';
 
 @Component({
   selector: 'app-nav-bar',
@@ -8,10 +10,16 @@ import { BasketItem } from 'src/app/shared/models/basket';
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent implements OnInit{
-  constructor(public basketService : BasketService){}
+
+  currentUser? : User;
+  constructor(public basketService : BasketService,public accountService : AccountService){}
   ngOnInit(): void {
     this.basketService.basketSource$.subscribe((res)=>{
-      if(res)this.getCount(res.items);
+      if(res) this.getCount(res.items);
+    });
+    this.accountService.currentUser$.subscribe((res)=>{
+      if(res) this.currentUser = res;
+      else this.currentUser = undefined
     })
   }
   count : number = 0;

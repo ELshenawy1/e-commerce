@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeModule } from './home/home.module';
 import { ShopModule } from './shop/shop.module';
 import { BasketModule } from './basket/basket.module';
+import { AccountModule } from './account/account.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +22,8 @@ import { BasketModule } from './basket/basket.module';
     ShopModule,
     BrowserAnimationsModule,
     HomeModule,
-    BasketModule
+    BasketModule,
+    AccountModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -3,20 +3,19 @@ import { CommonModule } from '@angular/common';
 
 import { CoreRoutingModule } from './core-routing.module';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
-import { SectionHeaderComponent } from './section-header/section-header.component';
-import { BreadcrumbModule } from 'xng-breadcrumb';
+import { SharedModule } from '../shared/shared.module';
+
 
 
 @NgModule({
-  declarations: [NavBarComponent, SectionHeaderComponent],
+  declarations: [NavBarComponent],
   imports: [
     CommonModule,
     CoreRoutingModule,
-    BreadcrumbModule
+    // SharedModule,
   ],
   exports:[
     NavBarComponent,
-    SectionHeaderComponent
   ]
 })
 export class CoreModule { }

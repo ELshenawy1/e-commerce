@@ -1,3 +1,4 @@
+import { AccountService } from 'src/app/account/account.service';
 import { BasketItem } from './shared/models/basket';
 import { BasketService } from './basket/basket.service';
 import { ShopService } from './shop/shop.service';
@@ -13,11 +14,16 @@ import { Product } from './shared/models/product';
 })
 export class AppComponent implements OnInit{
   title = 'Store Application';
-  constructor(private basketService:BasketService){}
+  constructor(private basketService:BasketService, private accountService : AccountService){}
 
   ngOnInit(): void {
     const basketId = localStorage.getItem("basket_id")
     if(basketId) this.basketService.getBasket(basketId)
+    this.loadCurrentUser()
   }
 
+  loadCurrentUser(){
+    const token = localStorage.getItem('token');
+    if(token) this.accountService.loadCurrentUser(token).subscribe();
+  }
 }
