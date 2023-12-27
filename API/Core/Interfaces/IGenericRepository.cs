@@ -15,5 +15,8 @@ namespace Core.Interfaces
         T GetEntityWithSpecification(ISpecification<T> spec);
         List<T> List(ISpecification<T> spec);
         int Count(ISpecification<T> spec);
+        void Add(T entity);
+        void Update(T entity);
+        void Delete(T entity);
     }
 }
