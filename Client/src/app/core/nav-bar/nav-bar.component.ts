@@ -16,6 +16,7 @@ export class NavBarComponent implements OnInit{
   ngOnInit(): void {
     this.basketService.basketSource$.subscribe((res)=>{
       if(res) this.getCount(res.items);
+      else this.count = 0
     });
     this.accountService.currentUser$.subscribe((res)=>{
       if(res) this.currentUser = res;

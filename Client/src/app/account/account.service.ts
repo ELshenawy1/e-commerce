@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, map, tap } from 'rxjs';
-import { User } from '../shared/models/user';
+import { Address, User } from '../shared/models/user';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 
@@ -55,4 +55,17 @@ export class AccountService {
   checkEmailExists(email : string){
     return this.httpClient.get<boolean>(`${this.baseUrl}/EmailExists?email=${email}`);
   }
+
+  getUserAddress(){
+    let headers = new HttpHeaders();
+    headers = headers.set('Authorization',`Bearer ${localStorage.getItem('token')}`);
+    return this.httpClient.get<Address>(`${this.baseUrl}/Address`,{headers})
+  }
+
+  updateUserAddress(address : Address){
+    let headers = new HttpHeaders();
+    headers = headers.set('Authorization',`Bearer ${localStorage.getItem('token')}`);
+    return this.httpClient.put(`${this.baseUrl}/Address`,address,{headers})
+  }
 }
+

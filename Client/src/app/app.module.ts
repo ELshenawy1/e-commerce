@@ -10,6 +10,9 @@ import { HomeModule } from './home/home.module';
 import { ShopModule } from './shop/shop.module';
 import { BasketModule } from './basket/basket.module';
 import { AccountModule } from './account/account.module';
+import { CheckoutModule } from './checkout/checkout.module';
+import { SharedModule } from './shared/shared.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +26,9 @@ import { AccountModule } from './account/account.module';
     BrowserAnimationsModule,
     HomeModule,
     BasketModule,
-    AccountModule
+    AccountModule,
+    CheckoutModule,
+    SharedModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

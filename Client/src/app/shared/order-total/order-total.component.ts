@@ -9,7 +9,7 @@ import { BasketTotal } from '../models/basket';
 })
 export class OrderTotalComponent implements OnInit{
   basketTotal? : BasketTotal;
-  constructor(private basketService : BasketService){}
+  constructor(public basketService : BasketService){}
   ngOnInit(): void {
     this.basketService.basketTotalSource$.subscribe((res)=>{
       if(res) this.basketTotal = res;

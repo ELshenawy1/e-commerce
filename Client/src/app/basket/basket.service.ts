@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Basket, BasketItem, BasketTotal } from '../shared/models/basket';
 import { Product } from '../shared/models/product';
+import { DeliveryMethod } from '../shared/models/deliveryMethod';
 
 @Injectable({
   providedIn: 'root',
@@ -15,6 +16,8 @@ export class BasketService {
   private basketTotalSource = new BehaviorSubject<BasketTotal|null>(null);
   basketTotalSource$ = this.basketTotalSource.asObservable();
 
+  shipping = 0;
+
   constructor(private httpClient: HttpClient) {}
 
   getBasket(id : string){
@@ -25,6 +28,7 @@ export class BasketService {
       }
     })
   } 
+  
   
   setBasket(basket : Basket){
     return this.httpClient.post<Basket>(this.baseUrl,basket).subscribe({
@@ -92,12 +96,15 @@ export class BasketService {
     }
   }
 
+  deleteLocalBasket(){
+    this.basketSource.next(null)
+    this.basketTotalSource.next(null)
+    localStorage.removeItem("basket_id")
+
+  }
   deleteBasket(basket : Basket){
       return this.httpClient.delete(`${this.baseUrl}?id=${basket.id}`).subscribe({
-        next:()=>{
-          this.basketSource.next(null)
-          this.basketTotalSource.next(null)
-          localStorage.removeItem("basket_id")
+        next:()=>{ this.deleteLocalBasket();
         }
       })
   }
@@ -106,18 +113,22 @@ export class BasketService {
   private calcTotal(){
     const basket = this.getCurrentBasketValue();
     if(!basket) return;
-    const shipping = 0;
     let sum = 0;
     basket.items.forEach(item => {
       sum+=(item.price*item.quantity)
     });
     const subtotal = sum;
-    const total = subtotal + shipping;
-    this.basketTotalSource.next({shipping,total,subtotal})
+    const total = subtotal + this.shipping;
+    this.basketTotalSource.next({shipping : this.shipping,total,subtotal})
   }
   
   private isProduct(item : Product | BasketItem):item is Product{
     return (item as Product).productType !== undefined;
+  }
+
+  setShippingPrice(deliveryMethod : DeliveryMethod){
+    this.shipping = deliveryMethod.price;
+    this.calcTotal()
   }
 }
 
