@@ -1,3 +1,44 @@
+<div class="mt-4" *ngIf="checkoutForm" [formGroup]="checkoutForm">
+  <div class="row">
+    <div class="form-group col-12" formGroupName="paymentForm">
+      <div class="form-floating mb-3">
+        <input type="text"
+               [class.is-invalid]="checkoutForm.get('paymentForm')?.get('nameOnCard')?.hasError('required') && checkoutForm.get('paymentForm')?.get('nameOnCard')?.touched"
+               formControlName="nameOnCard"
+               class="form-control"
+               id="floatingNameOnCard">
+        <label for="floatingNameOnCard">Name On Card</label>
+        <div *ngIf="checkoutForm.get('paymentForm')?.get('nameOnCard')?.hasError('required')" class="invalid-feedback">Name on card is required</div>
+      </div>
+    </div>
+  </div>
+  <div class="row mb-3">
+    
+    <div class="col-6">
+      <div class="form-floating">
+        <div class="form-control" #cardNumber></div>
+        <label>Card Number</label>
+        <span class="text-danger">{{cardErrors}}</span>
+      </div>
+    </div>
+
+    <div class="col-3">
+      <div class="form-floating">
+        <div class="form-control" #cardExpiry></div>
+        <label>Card Expiry</label>
+      </div>
+    </div>
+
+    <div class="col-3">
+      <div class="form-floating">
+        <div class="form-control" #cardCvc></div>
+        <label>Card Cvc</label>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <div class="alert alert-dismissible alert-success mt-2 mb-2" *ngIf="orderCreated">
   <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
   <strong>Order Created successfully!</strong>

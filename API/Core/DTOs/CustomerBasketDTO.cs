@@ -11,5 +11,10 @@ namespace Core.DTOs
     {
         public string ID { get; set; }
         public List<BasketItemDTO> Items { get; set; }
+        public int? DeliveryMethodID { get; set; }
+        public string? ClientSecret { get; set; }
+        public string? PaymentIntentID { get; set; }
+        public float ShippingPrice { get; set; }
+
     }
 }

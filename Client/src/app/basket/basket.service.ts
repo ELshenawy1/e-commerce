@@ -1,6 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, map } from 'rxjs';
 import { Basket, BasketItem, BasketTotal } from '../shared/models/basket';
 import { Product } from '../shared/models/product';
 import { DeliveryMethod } from '../shared/models/deliveryMethod';
@@ -127,8 +127,24 @@ export class BasketService {
   }
 
   setShippingPrice(deliveryMethod : DeliveryMethod){
+    const basket = this.getCurrentBasketValue()
     this.shipping = deliveryMethod.price;
-    this.calcTotal()
+    if(basket)
+    {
+      basket.deliveryMethodID = deliveryMethod.id;
+      this.setBasket(basket)
+    }
+  }
+
+  createPaymentIntent(){
+    let headers = new HttpHeaders();
+    headers = headers.set('Authorization',`Bearer ${localStorage.getItem('token')}`);
+
+    return this.httpClient.post<Basket>(`https://localhost:7247/api/Payments/${this.getCurrentBasketValue()?.id}`,{},{headers}).pipe(
+      map(basket=>{
+        this.basketSource.next(basket)
+      })
+    )
   }
 }
 

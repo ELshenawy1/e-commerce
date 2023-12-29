@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "+0t5IKwgQgKD5ByKAmJLVKGnizqGk18O4oV/AQFhniaD2IPqrkQrDrUun9k+F3+cDZ9vykXioOeiz1DAErXxhA==",
+  "dgSpecHash": "MwD/Lwd+euDs0fBwrEcX25OFNm557k49tSuiGWDop3RU20AvUA1VyloTkBBBisme1txUyCqEZTIi/vlwqWfQEA==",
   "success": true,
   "projectFilePath": "F:\\Projects\\e-commerce\\API\\Infrastructure\\Infrastructure.csproj",
   "expectedPackageFiles": [
@@ -47,8 +47,10 @@
     "C:\\Users\\ahmed\\.nuget\\packages\\microsoft.sqlserver.server\\1.0.0\\microsoft.sqlserver.server.1.0.0.nupkg.sha512",
     "C:\\Users\\ahmed\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
     "C:\\Users\\ahmed\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
+    "C:\\Users\\ahmed\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
     "C:\\Users\\ahmed\\.nuget\\packages\\pipelines.sockets.unofficial\\2.2.8\\pipelines.sockets.unofficial.2.2.8.nupkg.sha512",
     "C:\\Users\\ahmed\\.nuget\\packages\\stackexchange.redis\\2.7.10\\stackexchange.redis.2.7.10.nupkg.sha512",
+    "C:\\Users\\ahmed\\.nuget\\packages\\stripe.net\\43.8.0\\stripe.net.43.8.0.nupkg.sha512",
     "C:\\Users\\ahmed\\.nuget\\packages\\system.codedom\\4.4.0\\system.codedom.4.4.0.nupkg.sha512",
     "C:\\Users\\ahmed\\.nuget\\packages\\system.configuration.configurationmanager\\6.0.1\\system.configuration.configurationmanager.6.0.1.nupkg.sha512",
     "C:\\Users\\ahmed\\.nuget\\packages\\system.diagnostics.diagnosticsource\\6.0.0\\system.diagnostics.diagnosticsource.6.0.0.nupkg.sha512",

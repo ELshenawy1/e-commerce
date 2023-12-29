@@ -170,3 +170,5 @@ F:\Projects\e-commerce\API\API\bin\Debug\net7.0\Microsoft.AspNetCore.Identity.En
 F:\Projects\e-commerce\API\API\bin\Debug\net7.0\Microsoft.Extensions.Identity.Core.dll
 F:\Projects\e-commerce\API\API\bin\Debug\net7.0\Microsoft.Extensions.Identity.Stores.dll
 F:\Projects\e-commerce\API\API\bin\Debug\net7.0\Microsoft.Extensions.Options.dll
+F:\Projects\e-commerce\API\API\bin\Debug\net7.0\Newtonsoft.Json.dll
+F:\Projects\e-commerce\API\API\bin\Debug\net7.0\Stripe.net.dll
