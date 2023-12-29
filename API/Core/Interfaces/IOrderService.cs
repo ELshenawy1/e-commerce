@@ -13,5 +13,6 @@ namespace Core.Interfaces
         IReadOnlyList<Order> GetOrdersForUser(string buyerEmail);
         Order GetOrderByID(int id, string buyerEmail);
         IReadOnlyList<DeliveryMethod> GetDeliveryMethods();
+        Order GetLastOrder(string buyerEmail);
     }
 }

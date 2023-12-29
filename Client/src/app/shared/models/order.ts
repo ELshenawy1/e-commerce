@@ -16,6 +16,7 @@ export interface Order{
     orderItems : OrderItem[];
     subTotal : number;
     status : string;
+    total : number
 }
 
 export interface OrderItem{
@@ -24,4 +25,8 @@ export interface OrderItem{
     imgUrl : string;
     price : number;
     quantity : number;
+}
+
+export interface OrderCreated{
+    id : number
 }

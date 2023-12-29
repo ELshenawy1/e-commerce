@@ -40,6 +40,13 @@ namespace API.Controllers
             var orders = orderService.GetOrdersForUser(email);
             return Ok(mapper.Map<IReadOnlyList<Order>, IReadOnlyList<OrderToReturnDTO>>(orders));
         }
+        [HttpGet("Last")]
+        public ActionResult<OrderToReturnDTO> GetLastOrder()
+        {
+            var email = User.RetrieveEmailFromPrincipal();
+            var order = orderService.GetLastOrder(email);
+            return Ok(mapper.Map<Order, OrderToReturnDTO>(order));
+        }
         [HttpGet("{id}")]
         public ActionResult<OrderToReturnDTO> GetOrderByIDForUser(int id)
         {

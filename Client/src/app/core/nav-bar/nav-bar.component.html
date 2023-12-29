@@ -84,7 +84,7 @@
                   <i class="fa fa-shopping-cart me-3"></i> View basket
                 </a>
                 <a routerLink="/orders" class="dropdown-item">
-                  <i class="fa fa-history me-3"></i> View orders
+                  <i class="fa fa-history me-3" ></i> View orders
                 </a>
                 <div class="dropdown-divider"></div>
                 <a (click)="accountService.logout()" class="dropdown-item">
@@ -93,55 +93,6 @@
               </div>
             </li>
           </ul>
-          <!-- <div class="btn-group ms-3 me-5" dropdown style="cursor: pointer;">
-            <a id="button-basic" dropdownToggle type="button" class="btn btn-primary dropdown-toggle"
-                    aria-controls="dropdown-basic">
-              Button dropdown <span class="caret"></span>
-            </a>
-            <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu"
-                role="menu" aria-labelledby="button-basic">
-                <li class="py-1">
-                  <a routerLink="/basket" class="dropdown-item">
-                    <i class="fa fa-shopping-cart me-3"></i> View basket
-                  </a>
-                </li>
-                <li class="py-1">
-                  <a routerLink="/orders" class="dropdown-item">
-                    <i class="fa fa-history me-3"></i> View orders
-                  </a>
-                </li>
-                <div class="dropdown-divider"></div>
-                <li class="py-1">
-                  <a (click)="accountService.logout()" class="dropdown-item">
-                    <i class="fa fa-sign-out me-3"></i> Logout
-                  </a>
-                </li>
-              </ul>
-          </div> -->
-
-          <!-- <div class="dropdown ms-3 me-5" style="cursor: pointer;" dropdown>
-            <a class="dropdown-toggle">
-              <strong>Welcome {{currentUser.displayName}}</strong>
-            </a>
-            <ul *dropdownMenu class="dropdown-menu dropdown-menu-right">
-              <li class="py-1">
-                <a routerLink="/basket" class="dropdown-item">
-                  <i class="fa fa-shopping-cart me-3"></i> View basket
-                </a>
-              </li>
-              <li class="py-1">
-                <a routerLink="/orders" class="dropdown-item">
-                  <i class="fa fa-history me-3"></i> View orders
-                </a>
-              </li>
-              <div class="dropdown-divider"></div>
-              <li class="py-1">
-                <a (click)="accountService.logout()" class="dropdown-item">
-                  <i class="fa fa-sign-out me-3"></i> Logout
-                </a>
-              </li>
-            </ul>
-          </div> -->
         </ng-container>
       </ul>
     </div>

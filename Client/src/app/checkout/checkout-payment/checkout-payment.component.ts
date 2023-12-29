@@ -39,9 +39,8 @@
         next:order=>{
           this.orderCreated = true;
           setTimeout(() => {
-            const navigation : NavigationExtras = {state : order};
             this.basketService.deleteLocalBasket()
-            this.router.navigate(['/success'],navigation)}, 3000);
+            this.router.navigate([`/success`])}, 2000);
           
         },
         error:err=>{console.log(err); console.log(orderToCreate)}

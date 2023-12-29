@@ -12,6 +12,7 @@ import { BasketModule } from './basket/basket.module';
 import { AccountModule } from './account/account.module';
 import { CheckoutModule } from './checkout/checkout.module';
 import { SharedModule } from './shared/shared.module';
+import { OrdersModule } from './orders/orders.module';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { SharedModule } from './shared/shared.module';
     AccountModule,
     CheckoutModule,
     SharedModule,
+    OrdersModule
   ],
   providers: [],
   bootstrap: [AppComponent]

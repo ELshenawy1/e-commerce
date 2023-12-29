@@ -8,10 +8,14 @@ import { BasketComponent } from './basket/basket/basket.component';
 import { CheckoutComponent } from './checkout/checkout/checkout.component';
 import { RegisterComponent } from './account/register/register.component';
 import { CheckoutSuccessComponent } from './checkout/checkout-success/checkout-success.component';
+import { OrdersComponent } from './orders/orders/orders.component';
+import { OrderDetailsComponent } from './orders/order-details/order-details.component';
 
 const routes: Routes = [
   {path : '' , component : HomeComponent},
   {path : 'basket' , component : BasketComponent  },
+  {path : 'orders' , component : OrdersComponent  },
+  {path : 'orders/:id' , component : OrderDetailsComponent  },
   {path : 'success' , component : CheckoutSuccessComponent  },
   {path : 'login' , component : LoginComponent},
   {path : 'register' , component : RegisterComponent},

@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { DeliveryMethod } from '../shared/models/deliveryMethod';
 import { map } from 'rxjs';
-import { OrderToCreate } from '../shared/models/order';
+import { OrderCreated, OrderToCreate } from '../shared/models/order';
 
 @Injectable({
   providedIn: 'root'
@@ -27,6 +27,6 @@ export class CheckoutService {
     let headers = new HttpHeaders();
     headers = headers.set('Authorization',`Bearer ${localStorage.getItem('token')}`);
 
-    return this.httpClient.post(`${this.baseUrl}Orders`,order,{headers});
+    return this.httpClient.post<OrderCreated>(`${this.baseUrl}Orders`,order,{headers});
   }
 }

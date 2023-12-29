@@ -71,5 +71,12 @@ namespace Infrastructure.Services
             var spec = new OrderWithItemsAndOrderingSpecification(buyerEmail);
             return unitOfWork.Repository<Order>().List(spec);
         }
+
+        public Order GetLastOrder(string buyerEmail)
+        {
+            var spec = new OrderWithItemsAndOrderingSpecification(buyerEmail);
+            return unitOfWork.Repository<Order>().List(spec).FirstOrDefault() ;
+
+        }
     }
 }
