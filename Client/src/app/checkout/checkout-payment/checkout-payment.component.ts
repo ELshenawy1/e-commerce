@@ -13,7 +13,10 @@ import { Stripe, StripeCardCvcElement, StripeCardExpiryElement, StripeCardNumber
     templateUrl: './checkout-payment.component.html',
     styleUrls: ['./checkout-payment.component.css']
   })
-  export class CheckoutPaymentComponent implements OnInit{
+
+export class CheckoutPaymentComponent implements OnInit{
+  noChange : boolean = true;
+
     @Input() checkoutForm? : FormGroup;
     @ViewChild('cardNumber') cardNumberElement? : ElementRef
     @ViewChild('cardExpiry') cardExpiryElement? : ElementRef
@@ -24,8 +27,9 @@ import { Stripe, StripeCardCvcElement, StripeCardExpiryElement, StripeCardNumber
     cardNumber? : StripeCardNumberElement
     cardExpiry? : StripeCardExpiryElement;
     cardCvc? : StripeCardCvcElement;
-
-    cardErrors : any
+    cardNumberErrors : any
+    cardExErrors : any
+    cardCvcErrors : any
 
     constructor(private checkoutService : CheckoutService,
                 private basketService : BasketService,
@@ -38,34 +42,35 @@ import { Stripe, StripeCardCvcElement, StripeCardExpiryElement, StripeCardNumber
           this.cardNumber=elements.create('cardNumber');
           this.cardNumber.mount(this.cardNumberElement?.nativeElement)
           this.cardNumber.on('change',event=>{
-            if(event.error) this.cardErrors = event.error.message
-            else this.cardErrors = null
+            if(event.error) this.cardNumberErrors = event.error.message
+            else this.cardNumberErrors = null
           })
 
           this.cardExpiry=elements.create('cardExpiry');
           this.cardExpiry.mount(this.cardExpiryElement?.nativeElement)
           this.cardExpiry.on('change',event=>{
-            if(event.error) this.cardErrors = event.error.message
-            else this.cardErrors = null
+            if(event.error) this.cardExErrors = event.error.message
+            else this.cardExErrors = null
           })
 
           this.cardCvc=elements.create('cardCvc');
           this.cardCvc.mount(this.cardCvcElement?.nativeElement)
           this.cardCvc.on('change',event=>{
-            if(event.error) this.cardErrors = event.error.message
-            else this.cardErrors = null
+            if(event.error) this.cardCvcErrors = event.error.message
+            else this.cardCvcErrors = null
           })
         }
       })
     }
 
     private getOrderToCreate(basket : Basket) {
-      const deliveryMethodID = this.checkoutForm?.get('deliveryForm')?.get('deliveryMethod')?.value;
+      //There is no value for this line of code
+      // const deliveryMethodID = this.checkoutForm?.get('deliveryForm')?.get('deliveryMethod')?.value;
       const shipToAddress = this.checkoutForm?.get('addressForm')?.value as Address;
-      if(!deliveryMethodID || !shipToAddress) return;
+      if(!basket.deliveryMethodID || !shipToAddress) return;
       return {
         basketID : basket.id,
-        deliveryMethod :deliveryMethodID,
+        deliveryMethod :basket.deliveryMethodID,
         shipToAddress : shipToAddress,
       }
     }
@@ -76,7 +81,7 @@ import { Stripe, StripeCardCvcElement, StripeCardExpiryElement, StripeCardNumber
       const orderToCreate = this.getOrderToCreate(basket);
       if(!orderToCreate)return;
       this.checkoutService.createOrder(orderToCreate).subscribe({
-        next:order=>{
+        next:(order)=>{
           this.stripe?.confirmCardPayment(basket.clientSecret!,{
             payment_method:{
               card:this.cardNumber!,

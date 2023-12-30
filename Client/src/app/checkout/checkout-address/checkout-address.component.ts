@@ -13,12 +13,12 @@ export class CheckoutAddressComponent {
     this.saved = false;
   }
   constructor(private accountService : AccountService){}
-  @Input() checkOutFrom? : FormGroup;
+  @Input() checkOutForm? : FormGroup;
   saveUserAddress(){
-    this.accountService.updateUserAddress(this.checkOutFrom?.get('addressForm')?.value).subscribe({
+    this.accountService.updateUserAddress(this.checkOutForm?.get('addressForm')?.value).subscribe({
       next:()=>{
         this.saved = true;
-        this.checkOutFrom?.get('addressForm')?.reset(this.checkOutFrom.get('addressForm')?.value)
+        this.checkOutForm?.get('addressForm')?.reset(this.checkOutForm.get('addressForm')?.value)
       }
     })
   }

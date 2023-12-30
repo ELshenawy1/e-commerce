@@ -18,7 +18,9 @@
       <div class="form-floating">
         <div class="form-control" #cardNumber></div>
         <label>Card Number</label>
-        <span class="text-danger">{{cardErrors}}</span>
+        <span class="text-danger">{{cardNumberErrors}}</span>
+        <span class="text-danger">{{cardExErrors}}</span>
+        <span class="text-danger">{{cardCvcErrors}}</span>
       </div>
     </div>
 
@@ -46,7 +48,7 @@
     <button class="btn btn-outline-primary" cdkStepperPrevious>
        <i class="fa fa-angle-left"> </i> Back to Review
     </button>
-    <button class="btn btn-primary" (click)="submitOrder()">
+    <button class="btn btn-primary" (click)="submitOrder() " [disabled]="!checkoutForm?.valid || cardNumberErrors || cardCvcErrors || cardExErrors ">
       Submit Order <i class="fa fa-angle-right"></i>
     </button>
 </div>

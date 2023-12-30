@@ -1,11 +1,11 @@
-<div class="mt-4" *ngIf="checkOutFrom" [formGroup]="checkOutFrom">
+<div class="mt-4" *ngIf="checkOutForm" [formGroup]="checkOutForm">
   <div class="alert alert-dismissible alert-success" *ngIf="saved">
     <button type="button" class="btn-close" (click)="change()" data-bs-dismiss="alert"></button>
     <strong>Address Saved successfully</strong> 
   </div>
   <div class="d-flex justify-content-between align-items-center">
     <h4>Shipping Address</h4>
-    <button class="btn btn-outline-success mb-3" (click)="saveUserAddress()" [disabled]="!checkOutFrom.get('addressForm')?.valid ||(!checkOutFrom.get('addressForm')?.dirty)  ">
+    <button class="btn btn-outline-success mb-3" (click)="saveUserAddress()" [disabled]="!checkOutForm.get('addressForm')?.valid ||(!checkOutForm.get('addressForm')?.dirty)  ">
       Save as default address
     </button>
   </div>
@@ -16,14 +16,14 @@
           type="text"
           formControlName="firstName"
           [class.is-invalid]="
-            checkOutFrom.get('addressForm')?.get('firstName')?.touched &&
-            checkOutFrom.get('addressForm')?.get('firstName')?.invalid
+            checkOutForm.get('addressForm')?.get('firstName')?.touched &&
+            checkOutForm.get('addressForm')?.get('firstName')?.invalid
           "
           class="form-control"
           id="floatingFirstName"
         />
         <label for="floatingFirstName">First Name</label>
-        <div class="invalid-feedback" *ngIf="checkOutFrom.get('addressForm')?.get('firstName')?.hasError('required')">First Name is Required</div>
+        <div class="invalid-feedback" *ngIf="checkOutForm.get('addressForm')?.get('firstName')?.hasError('required')">First Name is Required</div>
       </div>
     </div>
 
@@ -31,8 +31,8 @@
       <div class="form-floating mb-3">
         <input
           [class.is-invalid]="
-            checkOutFrom.get('addressForm')?.get('lastName')?.touched &&
-            checkOutFrom.get('addressForm')?.get('lastName')?.invalid
+            checkOutForm.get('addressForm')?.get('lastName')?.touched &&
+            checkOutForm.get('addressForm')?.get('lastName')?.invalid
           "
           type="text"
           formControlName="lastName"
@@ -40,7 +40,7 @@
           id="floatinglastName"
         />
         <label for="floatinglastName">Last Name</label>
-        <div class="invalid-feedback" *ngIf="checkOutFrom.get('addressForm')?.get('lastName')?.hasError('required')">Last Name is Required</div>
+        <div class="invalid-feedback" *ngIf="checkOutForm.get('addressForm')?.get('lastName')?.hasError('required')">Last Name is Required</div>
 
       </div>
     </div>
@@ -49,8 +49,8 @@
       <div class="form-floating mb-3">
         <input
           [class.is-invalid]="
-            checkOutFrom.get('addressForm')?.get('street')?.touched &&
-            checkOutFrom.get('addressForm')?.get('street')?.invalid
+            checkOutForm.get('addressForm')?.get('street')?.touched &&
+            checkOutForm.get('addressForm')?.get('street')?.invalid
           "
           type="text"
           formControlName="street"
@@ -58,7 +58,7 @@
           id="floatingStreet"
         />
         <label for="floatingStreet">Street</label>
-        <div class="invalid-feedback" *ngIf="checkOutFrom.get('addressForm')?.get('street')?.hasError('required')">Street is Required</div>
+        <div class="invalid-feedback" *ngIf="checkOutForm.get('addressForm')?.get('street')?.hasError('required')">Street is Required</div>
 
       </div>
     </div>
@@ -67,8 +67,8 @@
       <div class="form-floating mb-3">
         <input
           [class.is-invalid]="
-            checkOutFrom.get('addressForm')?.get('city')?.touched &&
-            checkOutFrom.get('addressForm')?.get('city')?.invalid
+            checkOutForm.get('addressForm')?.get('city')?.touched &&
+            checkOutForm.get('addressForm')?.get('city')?.invalid
           "
           type="text"
           formControlName="city"
@@ -76,7 +76,7 @@
           id="floatingCity"
         />
         <label for="floatingCity">City</label>
-        <div class="invalid-feedback" *ngIf="checkOutFrom.get('addressForm')?.get('city')?.hasError('required')">City is Required</div>
+        <div class="invalid-feedback" *ngIf="checkOutForm.get('addressForm')?.get('city')?.hasError('required')">City is Required</div>
 
       </div>
     </div>
@@ -85,8 +85,8 @@
       <div class="form-floating mb-3">
         <input
           [class.is-invalid]="
-            checkOutFrom.get('addressForm')?.get('state')?.touched &&
-            checkOutFrom.get('addressForm')?.get('state')?.invalid
+            checkOutForm.get('addressForm')?.get('state')?.touched &&
+            checkOutForm.get('addressForm')?.get('state')?.invalid
           "
           type="text"
           formControlName="state"
@@ -94,7 +94,7 @@
           id="floatingState"
         />
         <label for="floatingState">State</label>
-        <div class="invalid-feedback" *ngIf="checkOutFrom.get('addressForm')?.get('state')?.hasError('required')">State is Required</div>
+        <div class="invalid-feedback" *ngIf="checkOutForm.get('addressForm')?.get('state')?.hasError('required')">State is Required</div>
 
       </div>
     </div>
@@ -103,8 +103,8 @@
       <div class="form-floating mb-3">
         <input
           [class.is-invalid]="
-            checkOutFrom.get('addressForm')?.get('zipCode')?.touched &&
-            checkOutFrom.get('addressForm')?.get('zipCode')?.invalid
+            checkOutForm.get('addressForm')?.get('zipCode')?.touched &&
+            checkOutForm.get('addressForm')?.get('zipCode')?.invalid
           "
           type="text"
           formControlName="zipCode"
@@ -112,7 +112,7 @@
           id="floatingZipCode"
         />
         <label for="floatingZipCode">ZipCode</label>
-        <div class="invalid-feedback" *ngIf="checkOutFrom.get('addressForm')?.get('zipCode')?.hasError('required')">Zip Code is Required</div>
+        <div class="invalid-feedback" *ngIf="checkOutForm.get('addressForm')?.get('zipCode')?.hasError('required')">Zip Code is Required</div>
 
       </div>
     </div>
@@ -120,10 +120,14 @@
 </div>
 
 <div class="d-flex justify-content-between flex-row mb-5">
-    <button class="btn btn-outline-primary" routerLink="/basket">
+    <button class="btn btn-outline-primary" routerLink="/basket" >
        <i class="fa fa-angle-left"> </i> Back to Basket
     </button>
-    <button class="btn btn-primary" cdkStepperNext>
+    <button 
+    class="btn btn-primary" 
+    cdkStepperNext
+    [disabled]="!checkOutForm?.get('addressForm')?.valid"
+    >
       Go to Delivery <i class="fa fa-angle-right"></i>
     </button>
 </div>

@@ -42,13 +42,28 @@ namespace Infrastructure.Services
             var deliveryMethod = unitOfWork.Repository<DeliveryMethod>().GetByID(deliveryMethodId);
             //calc subtotal
             var subtotal = items.Sum(item => item.Price * item.Quantity);
+
+            var spec = new OrderByPaymentIntentIdSpecification(basket.PaymentIntentID);
+            var order = unitOfWork.Repository<Order>().GetEntityWithSpecification(spec);
+            if(order != null)
+            {
+                order.ShipToAddress = shippingAddress;
+                order.DeliveryMethod = deliveryMethod;
+                order.Subtotal = subtotal;
+                unitOfWork.Repository<Order>().Update(order);
+
+            }
+            else
+            {
+                order = new Order(items, buyerEmail, shippingAddress, deliveryMethod, subtotal, basket.PaymentIntentID);
+                unitOfWork.Repository<Order>().Add(order);
+
+            }
             //create the order 
-            var order = new Order(items, buyerEmail, shippingAddress, deliveryMethod, subtotal);
-            unitOfWork.Repository<Order>().Add(order);
             //save to DB
             var result = unitOfWork.Complete();
             //delete Basket
-            basketRepository.DeleteBasket(basketId);
+            //basketRepository.DeleteBasket(basketId);
             //return order
             if (result <= 0) return null;
             return order;
